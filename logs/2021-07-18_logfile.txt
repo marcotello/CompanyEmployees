@@ -23,3 +23,4 @@ System.Object -> Entities.DTOs.CompanyDto
    at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)
 2021-07-18 23:50:15.1903 INFO Company with id: 0ad5b971-ff51-414d-af01-34187e407557 doesn't exist in the database.
 2021-07-18 23:53:06.2643 INFO Employee with id: 762226c1-ed2a-4381-83a5-08d94a710642 doesn't exist in the database.
+2021-07-18 23:58:30.0973 INFO Company with id: 0ad5b971-ff51-414d-af01-34187e407557 doesn't exist in the database.
