@@ -1,4 +1,5 @@
 using System.IO;
+using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Extensions;
 using Contracts;
 using Microsoft.AspNetCore.Builder;
@@ -41,6 +42,8 @@ namespace CompanyEmployees
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+            
+            services.AddScoped<ValidationFilterAttribute>();
 
             services.AddControllers(config =>
             {
