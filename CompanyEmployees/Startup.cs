@@ -40,7 +40,9 @@ namespace CompanyEmployees
             {
                 config.RespectBrowserAcceptHeader = true;
                 config.ReturnHttpNotAcceptable = true;
-            }).AddXmlDataContractSerializerFormatters().AddCustomCSVFormatter();
+            }).AddNewtonsoftJson()
+                .AddXmlDataContractSerializerFormatters()
+                .AddCustomCSVFormatter();
             
             services.AddSwaggerGen(c =>
             {
