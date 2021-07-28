@@ -1,0 +1,2 @@
+2021-07-24 14:20:17.7912 INFO Company with id: 48b33539-c4a2-4765-0dc7-08d949b22b38 doesn't exist in the database.
+2021-07-24 14:20:39.5998 INFO Company with id: 0ad5b971-ff51-414d-af01-34187e407558 doesn't exist in the database.

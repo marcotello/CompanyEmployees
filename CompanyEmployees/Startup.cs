@@ -44,11 +44,13 @@ namespace CompanyEmployees
             });
             
             services.AddScoped<ValidationFilterAttribute>();
+            services.AddScoped<ValidateCompanyExistsAttribute>();
+            services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
 
             services.AddControllers(config =>
             {
-                config.RespectBrowserAcceptHeader = true;
-                config.ReturnHttpNotAcceptable = true;
+                config.RespectBrowserAcceptHeader = false;
+                config.ReturnHttpNotAcceptable = false;
             }).AddNewtonsoftJson()
                 .AddXmlDataContractSerializerFormatters()
                 .AddCustomCSVFormatter();
