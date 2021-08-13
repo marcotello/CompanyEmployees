@@ -1,0 +1,2 @@
+2021-08-11 18:56:55.2899 ERROR Something went wrong: Syntax error (at index 5)
+2021-08-11 18:58:07.0577 ERROR Something went wrong: Syntax error (at index 5)
