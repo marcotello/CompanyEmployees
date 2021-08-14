@@ -2,6 +2,7 @@ using System.IO;
 using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Extensions;
 using Contracts;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NLog;
 using Repository;
+using Repository.DataShaping;
 
 namespace CompanyEmployees
 {
@@ -46,6 +48,7 @@ namespace CompanyEmployees
             services.AddScoped<ValidationFilterAttribute>();
             services.AddScoped<ValidateCompanyExistsAttribute>();
             services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
+            services.AddScoped <IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
 
             services.AddControllers(config =>
             {

@@ -14,5 +14,8 @@
         }
         
         public string OrderBy { get; set; }
+        
+        //Parameter for Data Shaping
+        public string Fields { get; set; }
     }
 }
