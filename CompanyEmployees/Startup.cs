@@ -1,6 +1,7 @@
 using System.IO;
 using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Extensions;
+using CompanyEmployees.Utility;
 using Contracts;
 using Entities.DTOs;
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +50,8 @@ namespace CompanyEmployees
             services.AddScoped<ValidateCompanyExistsAttribute>();
             services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
             services.AddScoped <IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
+            services.AddScoped<ValidateMediaTypeAttribute>();
+            services.AddScoped<EmployeeLinks>();
 
             services.AddControllers(config =>
             {
@@ -57,6 +60,8 @@ namespace CompanyEmployees
             }).AddNewtonsoftJson()
                 .AddXmlDataContractSerializerFormatters()
                 .AddCustomCSVFormatter();
+            
+            services.AddCustomMediaTypes();
             
             services.AddSwaggerGen(c =>
             {
