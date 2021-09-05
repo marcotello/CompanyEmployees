@@ -8,6 +8,7 @@ using CompanyEmployees.ModelBinders;
 using Contracts;
 using Entities.DTOs;
 using Entities.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyEmployees.Controllers
@@ -15,6 +16,7 @@ namespace CompanyEmployees.Controllers
     [ApiVersion("1.0")]
     [Route("api/companies")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class CompaniesController : Controller
     {
         private readonly IRepositoryManager _repository;
@@ -28,7 +30,8 @@ namespace CompanyEmployees.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet(Name = "GetCompanies")]
+        [HttpGet(Name = "GetCompanies"), Authorize(Roles = "Manager")]
+        [ResponseCache(CacheProfileName = "120SecondsDuration")]
         public async Task<IActionResult> GetCompanies()
         {
             //throw new Exception("Exception");
@@ -48,6 +51,7 @@ namespace CompanyEmployees.Controllers
         }
 
         [HttpGet("{id}", Name = "CompanyById")]
+        [ResponseCache(Duration = 60)]
         [ServiceFilter(typeof(ValidateCompanyExistsAttribute))]
         public async Task<IActionResult> GetCompany(Guid id)
         {
